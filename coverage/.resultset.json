@@ -1,0 +1,154 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/helpers/my_test_controller_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/clients/list_friends_client.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        3,
+        null,
+        2,
+        null,
+        2,
+        null,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/clients/authorizable.rb": [
+        1,
+        1,
+        5,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        4,
+        null,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/clients/sign_in_client.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        3,
+        3,
+        3,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/clients/users_client.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        3,
+        null,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/controllers/social_media_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/exporters/csv_exporter.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        4,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        4,
+        null,
+        null,
+        1,
+        4,
+        null,
+        null,
+        1,
+        40,
+        null,
+        null
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/controllers/my_test_controller_controller.rb": [
+        0,
+        0
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/controllers/sign_in_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/pedroresende/Projects/AvenueCode/QACourse/orkut-takeout/app/models/test.rb": [
+        0,
+        0
+      ]
+    },
+    "timestamp": 1450286952
+  }
+}
