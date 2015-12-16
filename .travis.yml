@@ -4,5 +4,5 @@ rvm:
 # uncomment this line if your project needs to run something other than `rake`:
 script: 
  - export COVERALLS_SERVICE_NAME=travis-ci
- - export COVERALLS_REPO_TOKEN=7Z2VL4rNm1mwdPwcKQUwKuqBy5qXVob1T
+ - export COVERALLS_REPO_TOKEN=7Og3CnY7XcPpp3BNebPTeHPgcGmKBYMiu
  - bundle exec rspec spec
