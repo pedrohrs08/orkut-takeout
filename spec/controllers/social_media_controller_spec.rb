@@ -76,7 +76,7 @@ describe SocialMediaController do
 		   
 		   expect(response.code).to eq "200"
 		   expect(response.body).to start_with("friend_name,friend_email")
-		   expect(response.body).to include("Pedro Silva,psilva@avenuecode.com")
+		   expect(response.body).to include("Pedro Silva,psilva@avenuecode.com)
 	    end
 	end
 end
