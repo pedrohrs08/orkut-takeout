@@ -55,28 +55,25 @@ describe SocialMediaController do
         end
 
 	    it "should return a CSV string" do
-		   
-		   sign_in_response = double()
-		   user_list_response = double()
-		   friend_list_response = double()
+	       stubbed_orkut_client = double()
+	       sign_in_response = double()
+	       
+	       allow(OrkutClient).to receive(:new).and_return(stubbed_orkut_client)
 
 		   allow(sign_in_response).to receive_messages(
 		   	:code => 200,
 		   	:body => "my_token"
-		   )
+		   )   
 
-		   allow(user_list_response).to receive(:body).and_return(users_json)
-		   allow(friend_list_response).to receive(:body).and_return(friends_json)
-	       
-		   allow(RestClient).to receive(:post).and_return(sign_in_response)
-		   allow(RestClient::Request).to receive(:execute).with(hash_including(url: /users/)).and_return(user_list_response)
-		   allow(RestClient::Request).to receive(:execute).with(hash_including(url: /friendship/)).and_return(friend_list_response)
+		   allow(stubbed_orkut_client).to receive(:sign_in).and_return(sign_in_response)
+		   allow(stubbed_orkut_client).to receive(:get_all_users).and_return(users_json)
+		   allow(stubbed_orkut_client).to receive(:get_all_friends).and_return(friends_json)
 
 		   get :export, {user: "user", password: "password"}
 		   
 		   expect(response.code).to eq "200"
 		   expect(response.body).to start_with("friend_name,friend_email")
-		   expect(response.body).to include("Pedro Silva,psilva@avenuecode.com")
+		   expect(response.body).to include("Pedro Silva,psilva@avenuecode.com")   
 	    end
 	end
 end

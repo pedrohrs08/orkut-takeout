@@ -64,5 +64,4 @@ describe CSVExporter do
 	         expect(export_result).to include("Eduardo Silva,esilva@avenuecode.com")
 		end
 	end
-
 end
