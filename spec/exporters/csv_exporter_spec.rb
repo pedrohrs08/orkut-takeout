@@ -6,16 +6,16 @@ describe CSVExporter do
     	[
     		{
     		 "__v" => 0,
-    		 "vipUserRequester" => "1",
-    		 "vipUserRequested" => "2",
+    		 "userRequester" => "1",
+    		 "userRequested" => "2",
     		 "blockUserRequester" => false,
     		 "blockUserRequested" => false,
     		 "status":1
     		 },
     		 {
     		 "__v":0,
-             "vipUserRequester" => "1",
-             "vipUserRequested" => "3",
+             "userRequester" => "1",
+             "userRequested" => "3",
              "blockUserRequester" => false,
              "blockUserRequested" => false,
              "status":1
