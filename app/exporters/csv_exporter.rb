@@ -1,6 +1,6 @@
 require 'csv'
 
-class CSVExporter
+class CSVExporter < Exporter
 	
 	def export_friends(input = [], users_list = [])
 		CSV.generate do |csv|
@@ -12,18 +12,5 @@ class CSVExporter
  				csv << line
 			end
 		end
-	end
-
-	private
-	def get_username_by_id(id,users = [])
-		get_property_from_user(id,users,:name)
-	end
-
-	def get_email_by_id(id,users = [])
-		get_property_from_user(id,users,:email)
-	end
-
-	def get_property_from_user(id,users = [], property)
-		 users.select { |u| u[:_id] == id }.collect{ |e| e[property] }.first 
 	end
 end

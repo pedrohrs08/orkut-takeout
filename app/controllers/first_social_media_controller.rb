@@ -1,4 +1,4 @@
-class SocialMediaController < ApplicationController
+class FirstSocialMediaController < ApplicationController
 	def export
 		raise "User missing" if params[:user].nil? and params[:password].nil?
 		orkut_client = OrkutClient.new

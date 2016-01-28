@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SocialMediaController do
+describe FirstSocialMediaController do
 	context "#export" do
 
 	    let(:friends_json) do 
@@ -57,7 +57,7 @@ describe SocialMediaController do
 	    it "should return a CSV string" do
 	       stubbed_orkut_client = double()
 	       sign_in_response = double()
-	       
+
 	       allow(OrkutClient).to receive(:new).and_return(stubbed_orkut_client)
 
 		   allow(sign_in_response).to receive_messages(
