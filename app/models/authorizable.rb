@@ -4,7 +4,7 @@ module Authorizable
   end
 
   def self.set_token(token)
-    @token = token
+    @token = "bearer " + token[1..(token.size - 2)]
   end
 
   def self.clear_token

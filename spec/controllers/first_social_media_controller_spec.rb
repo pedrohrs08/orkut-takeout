@@ -4,54 +4,13 @@ describe FirstSocialMediaController do
 	context "#export" do
 
 	    let(:friends_json) do 
-	    	[
-	    		{
-	    		 "__v" => 0,
-	    		 "userRequester" => "1",
-	    		 "userRequested" => "2",
-	    		 "blockUserRequester" => false,
-	    		 "blockUserRequested" => false,
-	    		 "status":1
-	    		 },
-	    		 {
-	    		 "__v":0,
-	             "userRequester" => "1",
-	             "userRequested" => "3",
-	             "blockUserRequester" => false,
-	             "blockUserRequested" => false,
-	             "status":1
-	         	}
-	    	]
+	    	
+	    	JSON.parse(%Q{[{"_id":"56ab7fc22e481306042c151d","user":{"_id":"56ab7ee72e481306042c1518","name":"QA Couse User 1","email":"qacourseuser1@avenuecode.com"}},{"_id":"56ab7fd22e481306042c151e","user":{"_id":"56ab7ef12e481306042c1519","name":"QA Couse User 2","email":"qacourseuser2@avenuecode.com"}},{"_id":"56ab7fd82e481306042c151f","user":{"_id":"56ab7efb2e481306042c151a","name":"QA Couse User 3","email":"qacourseuser3@avenuecode.com"}},{"_id":"56ab7fe22e481306042c1520","user":{"_id":"56ab7f042e481306042c151b","name":"QA Couse User 4","email":"qacourseuser4@avenuecode.com"}},{"_id":"56ab7fec2e481306042c1521","user":{"_id":"56ab7f102e481306042c151c","name":"QA Couse User 5","email":"qacourseuser5@avenuecode.com"}}]})
+	    	
         end
 
-        let(:users_json) do 
-			[{
-				"_id": "1",
-				"provider": "local",
-				"name": "Luis Perez",
-				"email": "lperez@avenuecode.com",
-				"password": "123456",
-				"__v": 0,
-				"role": "user"
-			}, 
-			{
-				"_id": "2",
-				"provider": "local",
-				"name": "Eduardo Silva",
-				"email": "esilva@avenuecode.com",
-				"password": "123",
-				"__v": 0,
-				"role": "user"
-			},
-			{
-				"_id": "3",
-				"provider": "local",
-				"name": "Pedro Silva",
-				"email": "psilva@avenuecode.com",
-				"password": "123",
-				"__v": 0,
-				"role": "user"
-			}]
+        let(:user_json) do 
+			JSON.parse(%Q{{"_id":"56608bd7edd9adc72c1b48ee","provider":"local","name":"Pedro","email":"pedrohrs08@gmail.com","password":"081289","__v":0,"role":"user"}})
         end
 
 	    it "should return a CSV string" do
@@ -66,14 +25,14 @@ describe FirstSocialMediaController do
 		   )   
 
 		   allow(stubbed_orkut_client).to receive(:sign_in).and_return(sign_in_response)
-		   allow(stubbed_orkut_client).to receive(:get_all_users).and_return(users_json)
-		   allow(stubbed_orkut_client).to receive(:get_all_friends).and_return(friends_json)
+		   allow(stubbed_orkut_client).to receive(:get_current_user_info).and_return(user_json)
+		   allow(stubbed_orkut_client).to receive(:get_my_friends).and_return(friends_json)
 
 		   get :export, {user: "user", password: "password"}
 		   
 		   expect(response.code).to eq "200"
-		   expect(response.body).to start_with("friend_name,friend_email")
-		   expect(response.body).to include("Pedro Silva,psilva@avenuecode.com")   
+		   expect(response.body).to start_with("my_name,my_email,friend_name,friend_email")
+		   expect(response.body).to include("Pedro,pedrohrs08@gmail.com,QA Couse User 1,qacourseuser1@avenuecode.com")   
 	    end
 	end
 end

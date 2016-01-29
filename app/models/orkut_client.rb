@@ -5,9 +5,9 @@ class OrkutClient
 
 	SIGN_IN_CLIENT_URL = "login"
 
-	LIST_USER_URL = "users"
+	GET_LOGGED_USER_URL = "users/me"
    
-    LIST_FRIENDS_URL = "friendship/me"
+    LIST_MY_FRIENDSHIPS = "friendships/me"
 	
 	def sign_in(user,password)
  	  response = RestClient.post BASE_URL + SIGN_IN_CLIENT_URL, {username: user, password: password }
@@ -19,19 +19,17 @@ class OrkutClient
 	   Authorizable.clear_token
 	end
 
-    def get_all_users
+    def get_current_user_info
     	raise "user not signed in" unless Authorizable.signed_in?
 
-    	response = RestClient::Request.execute(method: :get, url: LIST_USER_URL, headers: { :Authorization => Authorizable.get_token })
-        response.body
+    	response = RestClient::Request.execute(method: :get, url: BASE_URL + GET_LOGGED_USER_URL, headers: { :Authorization => Authorizable.get_token })
+        JSON.parse(response.body)
     end
 
 
-    def get_all_friends
+    def get_my_friends
     	raise "user not signed in" unless Authorizable.signed_in?
-
-    	response = RestClient::Request.execute(method: :get, url: LIST_FRIENDS_URL,
-                            payload: 'foo', headers: { :Authorization => Authorizable.get_token })
-        response.body
+    	response = RestClient::Request.execute(method: :get, url: BASE_URL + LIST_MY_FRIENDSHIPS, headers: { :Authorization => Authorizable.get_token })
+        JSON.parse(response.body)
     end
 end

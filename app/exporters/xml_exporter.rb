@@ -1,11 +1,17 @@
-class XMLExporter < Exporter
-	def export_friends(input = [], users_list = [])
+class XMLExporter 
+	def export_friends(input = [], user = {})
 		builder = Nokogiri::XML::Builder.new do |xml|
-			xml.friends_list do
+			xml.user do 
+				xml.name user[:name]
+				xml.email user[:email]
+							xml.friends do
 				input.each do |entry|
-					xml.friendName get_username_by_id(entry[:userRequested.to_s],users_list)
-					xml.friendEmail get_email_by_id(entry[:userRequested.to_s],users_list)
+					xml.friend do 
+						xml.name entry[:user.to_s][:name.to_s]
+						xml.email entry[:user.to_s][:email.to_s]
+					end
 				end
+			end
 			end
 		end
 		builder.to_xml

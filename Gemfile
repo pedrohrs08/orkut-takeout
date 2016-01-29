@@ -29,6 +29,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'coveralls', require: false
 gem 'simplecov', require: false
+gem 'nokogiri'
+gem 'json_builder'
 
 
 # Use ActiveModel has_secure_password

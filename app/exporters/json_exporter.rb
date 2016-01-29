@@ -1,11 +1,18 @@
-class JSONexporter < Exporter
-	def export_friends(input = [], users_list = [])
+class JSONExporter 
+	def export_friends(input = [], user = {})
 			json = JSONBuilder::Compiler.generate do
 		    	count input.size
-		    	friends input do |entry|
-		    		friendName get_username_by_id(entry[:vipUserRequested.to_s],users_list) 
-		    		friendEmail get_email_by_id(entry[:vipUserRequested.to_s],users_list)
+		    	
+		    	user user do |user|
+		    		name user[:name.to_s]
+		    		email user[:email.to_s]
 		    	end
+
+		    	friends input do |entry|
+		    		name entry[:user.to_s][:name.to_s] 
+		    		email entry[:user.to_s][:email.to_s]
+		    	end
+
 		    end
 		    json
 	end

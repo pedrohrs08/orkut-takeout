@@ -5,10 +5,10 @@ class SecondSocialMediaController < ApplicationController
 		
 		orkut_client.sign_in(params[:user],params[:password])
 		
-		friends_list = orkut_client.get_all_friends
-		users_list = orkut_client.get_all_users
+		friends_list = orkut_client.get_my_friends
+		users_list = orkut_client.get_current_user_info
 		
 		xml_exporter = XMLExporter.new
-		render text: xml_exporter.export_friends(friends_list,users_list)
+		render xml: xml_exporter.export_friends(friends_list,users_list)
 	end
 end

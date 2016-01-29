@@ -1,25 +1,18 @@
 require 'csv'
 
-class CSVExporter < Exporter
+class CSVExporter 
 	
-	def export_friends(input = [], users_list = [])
+	def export_friends(input = [], user = {})
 		CSV.generate do |csv|
-			csv << ["friend_name","friend_email"]
+			csv << ["my_name","my_email","friend_name","friend_email"]
 			input.each do |entry|
 				line = []
-				line << return_correct_name(entry,users_list)
-				line << get_email_by_id(entry[:userRequested.to_s],users_list)
+				line << user[:name.to_s]
+				line << user[:email.to_s]
+				line << entry[:user.to_s][:name.to_s]
+				line << entry[:user.to_s][:email.to_s]
  				csv << line
 			end
-		end
-	end
-
-	private
-	def return_correct_name(entry,users_list)
-		if entry[:userRequested.to_s].size < 3
-			get_username_by_id(entry[:userRequested.to_s],users_list)
-		else
-			"foo"
 		end
 	end
 end
