@@ -1,5 +1,4 @@
 class OrkutClient
-	include Authorizable
 
 	BASE_URL = "http://52.3.198.200:3000/"
 
