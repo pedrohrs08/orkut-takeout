@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  get 'first_social-media/export' => 'first_social_media#export'
-  get 'second_social-media/export' => 'second_social_media#export'
-  get 'third_social-media/export' => 'third_social_media#export'
+  get 'first-social-media/export' => 'first_social_media#export'
+  get 'second-social-media/export' => 'second_social_media#export'
+  get 'third-social-media/export' => 'third_social_media#export'
+  post 'export' => 'sign_in#export'
   
   root 'sign_in#index'
   # You can have the root of your site routed with "root"

@@ -1,0 +1,15 @@
+<%= form_tag('export') do  %>
+  <p>
+    <%= text_field_tag :user %><br>
+    <%= password_field_tag :password %>
+    <%= radio_button_tag(:export, "social_network_1") %>
+    <%= label_tag(:social_network_1, "Social Network 1") %>
+    <%= radio_button_tag(:export, "social_network_2") %>
+     <%= label_tag(:social_network_1, "Social Network 2") %>
+    <%= radio_button_tag(:export, "social_network_3") %>
+     <%= label_tag(:social_network_1, "Social Network 3") %>
+  </p> 
+  <p>
+    <%= submit_tag("Export") %>
+  </p>
+<% end %>
