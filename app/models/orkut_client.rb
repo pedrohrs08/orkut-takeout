@@ -21,7 +21,10 @@ class OrkutClient
     def get_current_user_info
     	raise "user not signed in" unless Authorizable.signed_in?
 
-    	response = RestClient::Request.execute(method: :get, url: BASE_URL + GET_LOGGED_USER_URL, headers: { :Authorization => Authorizable.get_token })
+    	response = RestClient::Request.execute(method: :get, 
+            url: BASE_URL + GET_LOGGED_USER_URL, 
+            headers: { :Authorization => Authorizable.get_token }
+            )
         JSON.parse(response.body)
     end
 
