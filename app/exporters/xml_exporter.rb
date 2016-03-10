@@ -5,7 +5,6 @@ class XMLExporter
     PARTY_ANIMAL = "PARTY ANIMAL" 
 
 	def export_friends(input = [], user = {})
-		p user
 		builder = Nokogiri::XML::Builder.new do |xml|
 			xml.user do 
 				xml.name user[:name.to_s]
