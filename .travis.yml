@@ -2,7 +2,7 @@ language: ruby
 rvm:
  - "2.2.1"
 # uncomment this line if your project needs to run something other than `rake`:
-script: 
+script:
  - export COVERALLS_SERVICE_NAME=travis-ci
- - export COVERALLS_REPO_TOKEN=oxO9MgsluTNg3a3dzQu7v1p97BQ7Fo8Fd
+ - export COVERALLS_REPO_TOKEN=p1N9WoZXPD8Olw6NWjC5wotxnuDXq00RG
  - bundle exec rspec spec
